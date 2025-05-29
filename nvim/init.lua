@@ -32,4 +32,5 @@ require("lazy").setup({
     require 'plugins.colortheme',
     require 'plugins.neotree',
     require 'plugins.bufferline',
+    require 'plugins.lualine',
 })
