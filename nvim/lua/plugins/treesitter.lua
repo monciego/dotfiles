@@ -4,10 +4,27 @@ return {
     build = ':TSUpdate',
     main = 'nvim-treesitter.configs',
     opts = {
-      ensure_installed = {
-        'bash', 'c', 'diff', 'html', 'lua', 'luadoc',
-        'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc'
-      },
+    ensure_installed = {
+      -- General scripting / system
+      'bash', 'c', 'diff', 'lua', 'luadoc', 'vim', 'vimdoc', 'query',
+
+      -- Web dev
+      'html', 'css', 'scss', 'javascript', 'typescript', 'tsx', 'json',
+
+      -- Backend
+      'php', 'go', 'python', 'sql',
+
+      -- Markdown and docs
+      'markdown', 'markdown_inline',
+
+      -- Frameworks & tools
+      'blade',         -- Laravel Blade templates
+      'dockerfile',    -- For container setups
+      'yaml',          -- Config files
+      'toml',          -- Another config format
+      'gitignore',     -- Common git config
+      'git_config',
+    },
       auto_install = true,
       highlight = {
         enable = true,
@@ -19,3 +36,4 @@ return {
       },
     },
 }
+
