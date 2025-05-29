@@ -1,0 +1,15 @@
+# OS/System files
+.DS_Store
+
+# SSH keys, secrets (don't track)
+*.pem
+*.key
+*.crt
+*.env
+.ssh/
+.gnupg/
+
+# Cache or log files
+*.log
+.cache/
+
