@@ -50,7 +50,7 @@ vim.keymap.set('n', '<leader>x', ':Bdelete!<CR>', opts)   -- close buffer
 vim.keymap.set('n', '<leader>b', '<cmd> enew <CR>', opts) -- new buffer
 
 -- Increment/decrement numbers
-vim.keymap.set('n', '<leader>+', '<C-a>', opts) -- increment
+vim.keymap.set('n', '<leader>+', '<C-a>', opts) -- incremnt
 vim.keymap.set('n', '<leader>-', '<C-x>', opts) -- decrement
 
 -- Window management
@@ -118,3 +118,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- Save and load session
 vim.keymap.set('n', '<leader>ss', ':mksession! .session.vim<CR>', { noremap = true, silent = false })
 vim.keymap.set('n', '<leader>sl', ':source .session.vim<CR>', { noremap = true, silent = false })
+
+
+vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>", { desc = "Open Lazy.nvim" })
+
