@@ -35,6 +35,8 @@ require("lazy").setup({
     require 'plugins.lualine',
     require 'plugins.telescope',
     require 'plugins.whichkey',
-    require 'plugins.lsp',
+    require 'plugins.alpha',
+    require 'plugins.autosession',
+ --   require 'plugins.lsp',
 })
 
