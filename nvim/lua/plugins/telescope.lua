@@ -100,8 +100,9 @@ return {
     vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
     vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
     vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]resume' })
-    vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
+    vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[s]earch recent files ("." for repeat)' })
     vim.keymap.set('n', "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
+    vim.keymap.set('n', "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
     vim.keymap.set('n', '<leader>sds', function()
       builtin.lsp_document_symbols {
         symbols = { 'Class', 'Function', 'Method', 'Constructor', 'Interface', 'Module', 'Property' },

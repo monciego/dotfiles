@@ -42,7 +42,8 @@ require("lazy").setup({
     require 'plugins.autocomplete',
     require 'plugins.autopairs',
     require 'plugins.comment',
-    require 'plugins.todo-comment',
+    require 'plugins.todo-comments',
+    require 'plugins.sorround',
  --   require 'plugins.lsp',
 })
 
