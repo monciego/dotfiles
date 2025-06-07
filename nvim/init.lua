@@ -40,6 +40,7 @@ require("lazy").setup({
     require 'plugins.dressing',
     require 'plugins.indent-blankline',
     require 'plugins.autocomplete',
+    require 'plugins.autopairs',
  --   require 'plugins.lsp',
 })
 
