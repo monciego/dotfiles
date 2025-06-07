@@ -37,6 +37,7 @@ require("lazy").setup({
     require 'plugins.whichkey',
     require 'plugins.alpha',
     require 'plugins.autosession',
+    require 'plugins.dressing',
  --   require 'plugins.lsp',
 })
 
