@@ -18,6 +18,7 @@ return {
 
     -- Useful for getting pretty icons, but requires a Nerd Font.
     'nvim-tree/nvim-web-devicons',
+    "folke/todo-comments.nvim",
   },
   config = function()
     local telescope = require 'telescope'

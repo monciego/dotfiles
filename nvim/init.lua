@@ -41,6 +41,8 @@ require("lazy").setup({
     require 'plugins.indent-blankline',
     require 'plugins.autocomplete',
     require 'plugins.autopairs',
+    require 'plugins.comment',
+    require 'plugins.todo-comment',
  --   require 'plugins.lsp',
 })
 
