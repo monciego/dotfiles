@@ -38,6 +38,8 @@ require("lazy").setup({
     require 'plugins.alpha',
     require 'plugins.autosession',
     require 'plugins.dressing',
+    require 'plugins.indent-blankline',
+    require 'plugins.autocomplete',
  --   require 'plugins.lsp',
 })
 
