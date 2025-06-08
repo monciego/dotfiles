@@ -45,5 +45,6 @@ require("lazy").setup({
     require 'plugins.todo-comments',
     require 'plugins.sorround',
     require 'plugins.lsp',
+    require 'plugins.trouble',
 })
 
