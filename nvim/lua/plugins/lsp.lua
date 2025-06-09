@@ -84,9 +84,9 @@ return {
 					[vim.diagnostic.severity.WARN] = signs["Warn"],
 					[vim.diagnostic.severity.ERROR] = signs["Error"],
 				},
-				linehl = {
-					[vim.diagnostic.severity.ERROR] = "ErrorMsg",
-				},
+				-- linehl = {
+				-- 	[vim.diagnostic.severity.ERROR] = "ErrorMsg",
+				-- },
 				numhl = {
 					[vim.diagnostic.severity.WARN] = "WarningMsg",
 				},

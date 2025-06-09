@@ -47,7 +47,7 @@ require("lazy").setup({
 	require("plugins.lsp"),
 	require("plugins.trouble"),
 	require("plugins.formatting"),
-	-- require("plugins.linting"),
+	require("plugins.linting"),
 	require("plugins.gitsigns"),
 	require("plugins.lazygit"),
 })
