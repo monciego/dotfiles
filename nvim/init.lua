@@ -46,5 +46,6 @@ require("lazy").setup({
     require 'plugins.sorround',
     require 'plugins.lsp',
     require 'plugins.trouble',
+  require 'plugins.formatting',
 })
 
