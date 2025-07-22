@@ -1,31 +1,32 @@
 return {
-	"ellisonleao/gruvbox.nvim",
-	priority = 1000, -- Make sure to load this before all the other start plugins.
-	config = function()
-		---@diagnostic disable-next-line: missing-fields
-		require("gruvbox").setup({
-			terminal_colors = true, -- add neovim terminal colors
-			undercurl = true,
-			underline = true,
-			bold = true,
-			italic = {
-				strings = true,
-				emphasis = true,
-				comments = true,
-				operators = false,
-				folds = true,
-			},
-			strikethrough = true,
-			invert_selection = false,
-			invert_signs = false,
-			invert_tabline = false,
-			inverse = true, -- invert background for search, diffs, statuslines and errors
-			contrast = "", -- can be "hard", "soft" or empty string
-			palette_overrides = {},
-			overrides = {},
-			dim_inactive = false,
-			transparent_mode = false,
-		})
-		vim.cmd("colorscheme gruvbox")
-	end,
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    lazy = false,
+    config = function()
+      require("catppuccin").setup({
+        flavour = "mocha", -- latte, frappe, macchiato, mocha
+        transparent_background = false,
+        term_colors = true,
+        color_overrides = {
+          mocha = {
+            base = "#0d0e0e",
+            mantle = "#0d0e0e",
+            crust = "#0d0e0e",
+          },
+        },
+        integrations = {
+          cmp = true,
+          gitsigns = true,
+          nvimtree = true,
+          telescope = true,
+          treesitter = true,
+          notify = false,
+          mini = false,
+        },
+      })
+      vim.cmd.colorscheme("catppuccin")
+    end,
+  },
 }
