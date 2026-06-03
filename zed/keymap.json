@@ -1,0 +1,80 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace && !Terminal",
+    "bindings": {
+      "shift shift": "file_finder::Toggle",
+      // "space v": "pane::SplitRight",
+      // "space h": "pane::SplitDown",
+      // "space x s": "pane::CloseActiveItem",
+      // "space b": "workspace::ToggleLeftDock",
+      // "space r": "workspace::ToggleRightDock",
+    },
+  },
+  {
+    "context": "Workspace && os == macos",
+    "bindings": {
+      "cmd-v": "pane::SplitRight",
+      "cmd-h": "pane::SplitDown",
+      "cmd-x s": "pane::CloseActiveItem",
+      "cmd-b": "workspace::ToggleLeftDock",
+      "cmd-r": "workspace::ToggleRightDock",
+    },
+  },
+  {
+    "context": "Workspace && os != macos",
+    "bindings": {
+      "alt-v": "pane::SplitRight",
+      "alt-h": "pane::SplitDown",
+      "alt-x s": "pane::CloseActiveItem",
+      "alt-b": "workspace::ToggleLeftDock",
+      "alt-r": "workspace::ToggleRightDock",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j k": "vim::NormalBefore",
+      "k j": "vim::NormalBefore",
+    },
+  },
+  {
+    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      "g l": "vim::SelectNext",
+      "g L": "vim::SelectPrevious",
+      "g a": "editor::SelectAllMatches",
+      "g shift-a": "editor::FindAllReferences",
+      "g f": "project_symbols::Toggle",
+      "space p e": "diagnostics::Deploy", // Zed specific
+    },
+  },
+  {
+    "context": "Picker > Editor",
+    "bindings": {
+      "ctrl-k": "menu::SelectPrevious",
+    },
+  },
+
+  {
+    "context": "Picker > Editor",
+    "bindings": {
+      "ctrl-j": "menu::SelectNext",
+    },
+  }
+]
