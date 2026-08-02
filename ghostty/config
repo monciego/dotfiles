@@ -1,4 +1,6 @@
-theme = iTerm2 Default
+theme = catppuccin-mocha.conf
+background = #0d0e0e
+font-family = Iosevka
 
 # This is the configuration file for Ghostty.
 #

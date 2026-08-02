@@ -22,8 +22,8 @@
       "type": "registry",
     },
   },
-  "buffer_font_family": "Monaspace Neon",
-  "ui_font_family": "Monaspace Neon",
+  "buffer_font_family": ".ZedMono",
+  "ui_font_family": ".ZedMono",
   "project_panel": {
     "dock": "right",
   },
@@ -39,10 +39,23 @@
     },
     "dock": "left",
   },
-  "theme": "macOS Classic Dark",
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "macOS Classic Dark"
+  },
+  "theme_overrides": {
+    "Catppuccin Mocha": {
+      "editor.background": "#0d0d0e",
+    },
+  },
   "hide_mouse": "on_typing_and_action",
   "vim_mode": true,
-  "icon_theme": "Colored Zed Icons Theme Dark",
+  "icon_theme": {
+    "mode": "light",
+    "light": "Colored Zed Icons Theme Dark",
+    "dark": "Colored Zed Icons Theme Dark"
+  },
   "ui_font_size": 16,
   "buffer_font_size": 15,
   "telemetry": {
