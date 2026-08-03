@@ -1,3 +1,6 @@
+# nvim
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+
 # Node.js
 
 export NVM_DIR="$HOME/.nvm"
