@@ -1,38 +1,51 @@
-export PATH="$HOME/.local/kitty.app/bin:$PATH"
+# Node.js
 
-PATH=~/.console-ninja/.bin:$PATH
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# pnpm
-export PNPM_HOME="/home/monciego/.local/share/pnpm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+
+# Package Managers
+
+export PNPM_HOME="$HOME/.local/share/pnpm"
+
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm end
 
-export PATH="$HOME/.config/composer/vendor/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="/home/monciego/.config/herd-lite/bin:$PATH"
-export PHP_INI_SCAN_DIR="/home/monciego/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
-# Android SDK Environment Variables
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+export BUN_INSTALL="$HOME/.bun"
 
-# Java Environment Variables
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
-export PATH=$PATH:$JAVA_HOME/bin
+# PHP
+
+export PHP_INI_SCAN_DIR="$HOME/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+
+# Java
+
+export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
+
+# Android
+
+export ANDROID_HOME="$HOME/Android/Sdk"
+
+# Development
+
+export VCPKG_ROOT="$HOME/vcpkg"
+
+# PATH
+
+export PATH="
+$HOME/.console-ninja/.bin:
+$HOME/.config/composer/vendor/bin:
+$HOME/.local/bin:
+$HOME/.config/herd-lite/bin:
+$ANDROID_HOME/emulator:
+$ANDROID_HOME/platform-tools:
+$ANDROID_HOME/cmdline-tools/latest/bin:
+$JAVA_HOME/bin:
+$BUN_INSTALL/bin:
+$PATH"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-export ANDROID_HOME=$HOME/Android
-export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-
-# vcpkg
-export VCPKG_ROOT="$HOME/vcpkg"
