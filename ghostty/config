@@ -17,8 +17,8 @@ window-save-state = always
 
 # Keybindings: mirrors my Neovim mappings, using alt instead of the <leader> and ctrl key.
 keybind = alt+r=reload_config
-keybind = alt+v=new_split:right
-keybind = alt+h=new_split:down
+keybind = alt+shift+v=new_split:right
+keybind = alt+shift+h=new_split:down
 keybind = alt+x>s=close_surface
 keybind = alt+s>e=equalize_splits
 keybind = alt+k=goto_split:up
