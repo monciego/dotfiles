@@ -4,9 +4,6 @@ font-family = Iosevka Nerd Font
 cursor-style = block
 adjust-cell-height = 35%
 
-window-padding-x = 8
-window-padding-y = 8
-
 mouse-hide-while-typing = true
 mouse-scroll-multiplier = 2
 
