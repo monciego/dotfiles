@@ -1,7 +1,7 @@
 -- Fuzzy Finder (files, lsp, etc)
 return {
 	"nvim-telescope/telescope.nvim",
-	branch = "0.1.x",
+	version = "*",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		-- Fuzzy Finder Algorithm which requires local dependencies to be built.
@@ -21,7 +21,6 @@ return {
 		"folke/todo-comments.nvim",
 	},
 	config = function()
-		local telescope = require("telescope")
 		local actions = require("telescope.actions")
 		local builtin = require("telescope.builtin")
 
