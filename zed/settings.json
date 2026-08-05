@@ -86,6 +86,26 @@
         "source.fixAll.eslint": true,
       },
     },
+    "PHP": {
+      "tab_size": 4,
+      "format_on_save": "on",
+      "formatter": {
+        "external": {
+          "command": "bash",
+          "arguments": [
+            "-c",
+            "cat > \"{buffer_path}\" && if [ -x ./vendor/bin/pint ]; then ./vendor/bin/pint --quiet \"{buffer_path}\"; fi && cat \"{buffer_path}\"",
+          ],
+        },
+      },
+      "language_servers": [
+        "intelephense",
+        "!phpactor",
+        "!phptools",
+        "!phpantom",
+        "...",
+      ],
+    },
   },
   "confirm_quit": true,
   "vim": {
