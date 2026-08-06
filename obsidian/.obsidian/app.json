@@ -1,0 +1,11 @@
+{
+  "vimMode": true,
+  "openBehavior": "daily",
+  "alwaysUpdateLinks": true,
+  "attachmentFolderPath": "05 Assets/Images",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "00 Inbox",
+  "showLineNumber": false,
+  "rightToLeft": false,
+  "strictLineBreaks": false
+}

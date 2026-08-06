@@ -17,3 +17,7 @@
 *.swo
 *.swx
 *~
+
+# Obsidian
+obsidian/.obsidian/workspace.json
+obsidian/.obsidian/workspace-mobile.json
