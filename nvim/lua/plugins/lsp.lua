@@ -38,6 +38,7 @@ return {
 				"php-cs-fixer",
 				"phpstan",
 				"gopls",
+				"markdownlint-cli2",
 			},
 		})
 
