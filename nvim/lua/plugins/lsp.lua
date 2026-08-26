@@ -37,6 +37,7 @@ return {
 				"eslint_d",
 				"php-cs-fixer",
 				"phpstan",
+				"gopls",
 			},
 		})
 

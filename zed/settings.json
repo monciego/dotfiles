@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "edit_predictions": {
+    "provider": "zed"
+  },
   "cli_default_open_behavior": "new_window",
   "outline_panel": {
     "dock": "right",
@@ -60,6 +63,9 @@
     "dock": "bottom",
   },
   "agent": {
+    "sandbox_permissions": {
+      "network_hosts": ["starlight.astro.build"],
+    },
     "default_profile": "write",
     "default_model": {
       "provider": "opencode",
@@ -113,6 +119,9 @@
         "source.fixAll.eslint": true,
       },
     },
+    "MDX": {
+      "language_servers": ["!mdx-analyzer", "..."],
+    },
     "TSX": {
       "code_actions_on_format": {
         "source.fixAll.eslint": true,
@@ -150,5 +159,4 @@
     "use_system_clipboard": "always",
   },
   "cursor_blink": false,
-  "cursor_shape": "block",
 }

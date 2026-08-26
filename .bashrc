@@ -56,3 +56,15 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # rust
 . "$HOME/.cargo/env"
+
+# opencode
+export PATH=/home/monciego/.opencode/bin:$PATH
+
+# pnpm
+export PNPM_HOME="/home/monciego/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
+export PATH=$PATH:/usr/local/go/bin
