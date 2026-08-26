@@ -20,7 +20,7 @@ require("lazy").setup({
 	require("plugins.autopairs"),
 	require("plugins.comment"),
 	require("plugins.todo-comments"),
-	require("plugins.sorround"),
+	require("plugins.surround"),
 	require("plugins.lsp"),
 	require("plugins.trouble"),
 	require("plugins.formatting"),

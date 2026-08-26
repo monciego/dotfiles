@@ -50,7 +50,6 @@ return {
 				buffers = {
 					initial_mode = "normal",
 					sort_lastused = true,
-					-- sort_mru = true,
 					mappings = {
 						n = {
 							["d"] = actions.delete_buffer,
@@ -58,12 +57,15 @@ return {
 						},
 					},
 				},
-			},
-			live_grep = {
-				file_ignore_patterns = { "node_modules", ".git", ".venv", "vendor" },
-				additional_args = function(_)
-					return { "--hidden" }
-				end,
+				live_grep = {
+					file_ignore_patterns = { "node_modules", ".git", ".venv", "vendor" },
+					additional_args = function(_)
+						return { "--hidden" }
+					end,
+				},
+				git_files = {
+					previewer = false,
+				},
 			},
 			path_display = {
 				filename_first = {
@@ -74,9 +76,6 @@ return {
 				["ui-select"] = {
 					require("telescope.themes").get_dropdown(),
 				},
-			},
-			git_files = {
-				previewer = false,
 			},
 		})
 
@@ -98,7 +97,7 @@ return {
 		vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
 		vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
 		vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
-		vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]resume" })
+		vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
 		vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[s]earch recent files ("." for repeat)' })
 		vim.keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
 		vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
@@ -106,7 +105,7 @@ return {
 			builtin.lsp_document_symbols({
 				symbols = { "Class", "Function", "Method", "Constructor", "Interface", "Module", "Property" },
 			})
-		end, { desc = "[S]each LSP document [S]ymbols" })
+		end, { desc = "[S]earch LSP document [S]ymbols" })
 		vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 		vim.keymap.set("n", "<leader>s/", function()
 			builtin.live_grep({

@@ -61,19 +61,19 @@ return {
 				keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 				keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
 				keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
-				keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-				keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+				keymap.set("n", "[d", function()
+					vim.diagnostic.jump({ count = -1 })
+				end, opts)
+				keymap.set("n", "]d", function()
+					vim.diagnostic.jump({ count = 1 })
+				end, opts)
 				keymap.set("n", "K", vim.lsp.buf.hover, opts)
 				keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
 			end,
 		})
 
 		-- Diagnostic signs
-		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-		end
+		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 
 		vim.diagnostic.config({
 			virtual_lines = false,
