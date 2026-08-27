@@ -380,7 +380,13 @@ return {
 				},
 			})
 
-			vim.keymap.set("n", "<leader>e", "<Cmd>Neotree reveal<CR>")
+			vim.keymap.set("n", "<leader>e", "<Cmd>Neotree toggle<CR>", {
+				desc = "Toggle file explorer",
+			})
+
+			vim.keymap.set("n", "\\", "<Cmd>Neotree reveal<CR>", {
+				desc = "Reveal current file",
+			})
 		end,
 	},
 }
