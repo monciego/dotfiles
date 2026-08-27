@@ -8,7 +8,7 @@ require("lazy").setup({
 	require("plugins.treesitter"),
 	require("plugins.colortheme"),
 	require("plugins.neotree"),
-	require("plugins.bufferline"),
+	-- require("plugins.bufferline"),
 	require("plugins.lualine"),
 	require("plugins.telescope"),
 	require("plugins.whichkey"),
