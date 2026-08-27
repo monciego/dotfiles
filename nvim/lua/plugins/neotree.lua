@@ -249,8 +249,8 @@ return {
 				filesystem = {
 					filtered_items = {
 						visible = false, -- when true, they will just be displayed differently than normal items
-						hide_dotfiles = true,
-						hide_gitignored = true,
+						hide_dotfiles = false,
+						hide_gitignored = false,
 						hide_hidden = true, -- only works on Windows for hidden files/directories
 						hide_by_name = {
 							--"node_modules"
@@ -266,8 +266,8 @@ return {
 							--".env*",
 						},
 						never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
-							--".DS_Store",
-							--"thumbs.db"
+							".DS_Store",
+							"thumbs.db",
 						},
 						never_show_by_pattern = { -- uses glob style patterns
 							--".null-ls_*",
@@ -380,7 +380,7 @@ return {
 				},
 			})
 
-			vim.keymap.set("n", "\\", "<Cmd>Neotree reveal<CR>")
+			vim.keymap.set("n", "<leader>e", "<Cmd>Neotree reveal<CR>")
 		end,
 	},
 }
