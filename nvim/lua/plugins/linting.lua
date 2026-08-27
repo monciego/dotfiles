@@ -3,9 +3,23 @@ return {
 	{ -- Linting
 		"mfussenegger/nvim-lint",
 		event = { "BufReadPre", "BufNewFile" },
+
 		config = function()
 			local lint = require("lint")
 			lint.linters_by_ft = {
+				-- JavaScript / TypeScript
+				javascript = { "eslint_d" },
+				javascriptreact = { "eslint_d" },
+				typescript = { "eslint_d" },
+				typescriptreact = { "eslint_d" },
+
+				-- Astro
+				astro = { "eslint_d" },
+
+				-- PHP
+				php = { "phpstan" },
+
+				-- Markdown
 				markdown = { "markdownlint-cli2" },
 			}
 

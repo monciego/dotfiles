@@ -61,6 +61,9 @@ return {
 			"pyright",
 			"phpactor",
 			"gopls",
+			"clangd",
+			"rust_analyzer",
+			"astro",
 		}
 
 		-- -----------------------------------------------------------------------
