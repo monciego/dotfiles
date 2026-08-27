@@ -1,6 +1,6 @@
 theme = catppuccin-mocha.conf
 background = #1a1c1c
-font-family = Iosevka Nerd Font
+font-family = "GeistMono Nerd Font"
 cursor-style = block
 adjust-cell-height = 35%
 
