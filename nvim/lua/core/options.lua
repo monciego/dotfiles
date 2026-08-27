@@ -1,12 +1,16 @@
 -- UI: General Display
 vim.o.termguicolors = true -- Enable GUI colors for terminal
-vim.o.cursorline = true -- Highlight the current line
-vim.o.signcolumn = "yes" -- Always show sign column
+vim.o.cursorline = false -- Highlight the current line
+vim.o.signcolumn = "yes:1" -- Always show sign column with width of 1
 vim.o.number = true -- Show absolute line numbers
 vim.o.relativenumber = true -- Show relative line numbers
 vim.o.numberwidth = 4 -- Width of the number column
 vim.wo.number = true -- Enable line numbers (window-local)
-vim.wo.signcolumn = "yes" -- Keep signcolumn on (window-local)
+vim.o.winborder = "rounded" -- Use rounded borders for floating windows
+vim.opt.fillchars = { eob = " " } -- Hide ~ characters on empty lines
+vim.opt.cmdheight = 1 -- Height of command line area
+vim.opt.pumheight = 10 -- Maximum height of popup menu
+vim.opt.ruler = true -- Show cursor position in command line
 
 -- Scrolling & Wrapping
 vim.o.wrap = false -- Don't wrap lines
@@ -56,7 +60,7 @@ vim.o.inccommand = "split" -- Live preview of :s command
 vim.o.confirm = true -- Prompt to save before closing unsaved files
 
 -- UI: Tabs & Status
-vim.o.showtabline = 2 -- Always show tab line
+vim.o.showtabline = 0 -- Always show tab line
 
 -- File Encoding
 vim.o.fileencoding = "utf-8" -- Use UTF-8 for file encoding
@@ -79,4 +83,15 @@ vim.opt.iskeyword:append("-") -- Treat hyphenated-words as single word
 vim.opt.runtimepath:remove("/usr/share/vim/vimfiles") -- Separate vim & neovim plugins
 
 -- Filetype detection
-vim.filetype.add({ extension = { gotmpl = "gotmpl" } })
+vim.filetype.add({
+	extension = {
+		gotmpl = "gotmpl", -- Go templates (registered for gopls)
+		tmpl = "gotmpl",
+	},
+	filename = {
+		[".envrc"] = "sh", -- direnv files use bash syntax
+	},
+	pattern = {
+		["[jt]sconfig.*.json"] = "jsonc", -- Treat tsconfig/jsconfig files as JSONC (allows comments)
+	},
+})
