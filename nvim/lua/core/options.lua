@@ -77,3 +77,6 @@ vim.opt.iskeyword:append("-") -- Treat hyphenated-words as single word
 
 -- Runtime Path (Optional Cleanup)
 vim.opt.runtimepath:remove("/usr/share/vim/vimfiles") -- Separate vim & neovim plugins
+
+-- Filetype detection
+vim.filetype.add({ extension = { gotmpl = "gotmpl" } })
