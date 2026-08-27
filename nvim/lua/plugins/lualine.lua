@@ -24,11 +24,21 @@ return {
 				b = { fg = colors.fg, bg = colors.gray3 },
 				c = { fg = colors.fg, bg = colors.gray2 },
 			},
-			command = { a = { fg = colors.bg, bg = colors.yellow, gui = "bold" } },
-			insert = { a = { fg = colors.bg, bg = colors.blue, gui = "bold" } },
-			visual = { a = { fg = colors.bg, bg = colors.purple, gui = "bold" } },
-			terminal = { a = { fg = colors.bg, bg = colors.cyan, gui = "bold" } },
-			replace = { a = { fg = colors.bg, bg = colors.red1, gui = "bold" } },
+			command = {
+				a = { fg = colors.bg, bg = colors.yellow, gui = "bold" },
+			},
+			insert = {
+				a = { fg = colors.bg, bg = colors.blue, gui = "bold" },
+			},
+			visual = {
+				a = { fg = colors.bg, bg = colors.purple, gui = "bold" },
+			},
+			terminal = {
+				a = { fg = colors.bg, bg = colors.cyan, gui = "bold" },
+			},
+			replace = {
+				a = { fg = colors.bg, bg = colors.red1, gui = "bold" },
+			},
 			inactive = {
 				a = { fg = colors.gray1, bg = colors.bg, gui = "bold" },
 				b = { fg = colors.gray1, bg = colors.bg },
@@ -53,12 +63,6 @@ return {
 			end,
 		}
 
-		local filename = {
-			"filename",
-			file_status = true, -- displays file status (readonly status, modified status)
-			path = 0, -- 0 = just filename, 1 = relative path, 2 = absolute path
-		}
-
 		local hide_in_width = function()
 			return vim.fn.winwidth(0) > 100
 		end
@@ -67,7 +71,12 @@ return {
 			"diagnostics",
 			sources = { "nvim_diagnostic" },
 			sections = { "error", "warn" },
-			symbols = { error = " ", warn = " ", info = " ", hint = " " },
+			symbols = {
+				error = " ",
+				warn = " ",
+				info = " ",
+				hint = " ",
+			},
 			colored = false,
 			update_in_insert = false,
 			always_visible = false,
@@ -77,50 +86,96 @@ return {
 		local diff = {
 			"diff",
 			colored = false,
-			symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
+			symbols = {
+				added = " ",
+				modified = " ",
+				removed = " ",
+			},
 			cond = hide_in_width,
 		}
 
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
-				theme = themes[env_var_nvim_theme], -- Set theme based on environment variable
-				-- Some useful glyphs:
-				-- https://www.nerdfonts.com/cheat-sheet
-				--        
-				section_separators = { left = "", right = "" },
-				component_separators = { left = "", right = "" },
-				disabled_filetypes = { "alpha", "neo-tree", "Avante" },
+				theme = themes[env_var_nvim_theme],
+				section_separators = {
+					left = "",
+					right = "",
+				},
+				component_separators = {
+					left = "",
+					right = "",
+				},
+				disabled_filetypes = {
+					"alpha",
+					"Avante",
+				},
 				always_divide_middle = true,
+				globalstatus = true,
 			},
+
 			sections = {
 				lualine_a = { mode },
-				lualine_b = { "branch", "diff", "diagnostics" },
+
+				lualine_b = {
+					"branch",
+					diff,
+					diagnostics,
+				},
+
 				lualine_c = {
 					{
 						"filename",
-						file_status = true, -- displays file status (readonly status, modified status)
-						path = 0, -- 0 = just filename, 1 = relative path, 2 = absolute path
+						file_status = true,
+						path = 0,
 					},
 				},
+
 				lualine_x = {
 					diagnostics,
-					{ "encoding", cond = hide_in_width },
-					{ "filetype", cond = hide_in_width },
+					{
+						"encoding",
+						cond = hide_in_width,
+					},
+					{
+						"filetype",
+						cond = hide_in_width,
+					},
 				},
-				lualine_y = { "location" },
-				lualine_z = { "" }, -- Use Neovim's ruler instead of Lualine's progress
+
+				lualine_y = {
+					"location",
+				},
+
+				lualine_z = {
+					"",
+				},
 			},
+
 			inactive_sections = {
 				lualine_a = {},
 				lualine_b = {},
-				lualine_c = { { "filename", path = 1 } },
-				lualine_x = { { "location", padding = 0 } },
+				lualine_c = {
+					{
+						"filename",
+						path = 1,
+					},
+				},
+				lualine_x = {
+					{
+						"location",
+						padding = 0,
+					},
+				},
 				lualine_y = {},
 				lualine_z = {},
 			},
+
 			tabline = {},
-			extensions = { "fugitive" },
+
+			extensions = {
+				"fugitive",
+			},
 		})
 	end,
 }
