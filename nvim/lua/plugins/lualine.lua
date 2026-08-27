@@ -109,7 +109,7 @@ return {
 					{ "filetype", cond = hide_in_width },
 				},
 				lualine_y = { "location" },
-				lualine_z = { "progress" },
+				lualine_z = { "" }, -- Use Neovim's ruler instead of Lualine's progress
 			},
 			inactive_sections = {
 				lualine_a = {},
