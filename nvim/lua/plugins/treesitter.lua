@@ -1,16 +1,19 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	event = { "BufReadPre", "BufNewFile" },
+	branch = "main",
 	build = ":TSUpdate",
+	event = { "BufReadPre", "BufNewFile" },
+	main = "nvim-treesitter",
+
 	dependencies = {
 		"windwp/nvim-ts-autotag",
 	},
 
-	main = "nvim-treesitter.configs",
 	opts = {
 		ensure_installed = {
 			"bash",
 			"c",
+			"rust",
 			"diff",
 			"lua",
 			"luadoc",
@@ -18,6 +21,7 @@ return {
 			"vimdoc",
 			"query",
 			"html",
+			"java",
 			"css",
 			"scss",
 			"javascript",
@@ -27,6 +31,7 @@ return {
 			"prisma",
 			"graphql",
 			"svelte",
+			"astro",
 			"php",
 			"go",
 			"python",
@@ -40,43 +45,52 @@ return {
 			"gitignore",
 			"git_config",
 		},
-		auto_install = true,
-		highlight = {
-			enable = true,
-			additional_vim_regex_highlighting = { "ruby" },
-		},
-		indent = {
-			enable = true,
-			disable = { "ruby" },
-		},
-		incremental_selection = {
-			enable = true,
-			keymaps = {
-				init_selection = "<C-space>",
-				node_incremental = "<C-space>",
-				scope_incremental = false,
-				node_decremental = "<bs>",
-			},
-		},
 	},
+
 	config = function(_, opts)
-		-- Register tsx parser for typescriptreact filetype
+		local ts = require("nvim-treesitter")
+
+		ts.setup(opts)
+
+		-- Install any parsers not already present (replaces old auto_install/ensure_installed behavior).
+		ts.install(opts.ensure_installed)
+
+		-- Register tsx parser for typescriptreact filetype (same as before).
 		vim.treesitter.language.register("tsx", "typescriptreact")
+		-- Blade files often report filetype "blade"; ensure the parser maps correctly.
+		vim.treesitter.language.register("blade", "blade")
 
-		-- Setup treesitter
-		require("nvim-treesitter.configs").setup(opts)
+		-- Enable highlighting + indentation per-buffer. This replaces the old
+		-- highlight.enable/indent.enable options which no longer exist on `main`.
+		local group = vim.api.nvim_create_augroup("UserTreesitter", { clear = true })
 
-		-- Setup autotag separately
+		vim.api.nvim_create_autocmd("FileType", {
+			group = group,
+			callback = function(args)
+				local buf = args.buf
+				local lang = vim.treesitter.language.get_lang(args.match) or args.match
+
+				-- Only start if a parser is actually available for this language;
+				-- avoids errors on filetypes with no treesitter parser at all.
+				local ok_add = pcall(vim.treesitter.language.add, lang)
+				if not ok_add then
+					return
+				end
+
+				pcall(vim.treesitter.start, buf, lang)
+
+				-- Treesitter-based indentation.
+				vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+			end,
+		})
+
+		-- Setup autotag separately (unchanged, independent of the highlight/indent rewrite).
 		require("nvim-ts-autotag").setup({
 			opts = {
-				-- Defaults
-				enable_close = true, -- Auto close tags
-				enable_rename = true, -- Auto rename pairs of tags
-				enable_close_on_slash = false, -- Auto close on trailing </
+				enable_close = true,
+				enable_rename = true,
+				enable_close_on_slash = false,
 			},
-			-- Also override individual filetype configs, these take priority.
-			-- Empty by default, useful if one of the "opts" global settings
-			-- doesn't work well in a specific filetype
 			per_filetype = {
 				["html"] = {
 					enable_close = false,

@@ -178,7 +178,7 @@ return {
 				vim.keymap.set("n", "<leader>rs", function()
 					local clients = vim.lsp.get_clients({ bufnr = event.buf })
 					for _, client in ipairs(clients) do
-						client:stop({ force = true })
+						client:stop(true)
 					end
 					vim.defer_fn(function()
 						vim.cmd("edit")
