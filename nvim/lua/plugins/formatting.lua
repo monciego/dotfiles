@@ -12,7 +12,6 @@ return {
 				typescriptreact = { "prettier" },
 				svelte = { "prettier" },
 				astro = { "prettier" },
-
 				css = { "prettier" },
 				html = { "prettier" },
 				json = { "prettier" },
@@ -20,18 +19,12 @@ return {
 				markdown = { "prettier" },
 				graphql = { "prettier" },
 				liquid = { "prettier" },
-
 				lua = { "stylua" },
-
 				python = { "isort", "black" },
-
 				php = { "php_cs_fixer" },
-
 				go = { "gofmt" },
-
 				rust = { "rustfmt" },
-
-				c = { "clang-format" },
+				c = { "clang_format" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
