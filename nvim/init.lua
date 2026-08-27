@@ -1,6 +1,7 @@
 -- Load core configuration
 require("core.options")
 require("core.keymaps")
+require("core.autocmds")
 require("config.lazy")
 
 -- Setup lazy.nvim plugins

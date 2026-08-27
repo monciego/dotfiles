@@ -74,7 +74,7 @@ vim.o.list = true -- Show invisible characters
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- Format Options
-vim.opt.formatoptions:remove({ "c", "r", "o" }) -- Don't auto-insert comment leaders
+-- vim.opt.formatoptions:remove({ "c", "r", "o" }) -- Don't auto-insert comment leaders
 
 -- Keywords
 vim.opt.iskeyword:append("-") -- Treat hyphenated-words as single word
