@@ -42,7 +42,35 @@ return {
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
-				theme = "gruvbox_dark",
+				theme = {
+					normal = {
+						a = { fg = "#ebdbb2", bg = "#3c3836" },
+						b = { fg = "#ebdbb2", bg = "#262a2b" },
+						c = { fg = "#ebdbb2", bg = "#262a2b" },
+					},
+
+					insert = {
+						a = { fg = "#262a2b", bg = "#83a598" },
+					},
+
+					visual = {
+						a = { fg = "#262a2b", bg = "#d3869b" },
+					},
+
+					replace = {
+						a = { fg = "#262a2b", bg = "#fb4934" },
+					},
+
+					command = {
+						a = { fg = "#262a2b", bg = "#fabd2f" },
+					},
+
+					inactive = {
+						a = { fg = "#928374", bg = "#262a2b" },
+						b = { fg = "#928374", bg = "#262a2b" },
+						c = { fg = "#928374", bg = "#262a2b" },
+					},
+				},
 				section_separators = {
 					left = "",
 					right = "",
