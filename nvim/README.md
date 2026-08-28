@@ -1,8 +1,8 @@
-a blazingly bad neovim config
+# A Blazingly Bad Neovim Config
 
 ## Structure
 
-```
+```text
 nvim/
 ├── init.lua                  -- Entry point
 ├── lua/
@@ -18,7 +18,7 @@ nvim/
 │       ├── telescope.lua     -- Fuzzy finder
 │       ├── autocomplete.lua  -- nvim-cmp completion
 │       ├── neotree.lua       -- File explorer
-│       ├── bufferline.lua    -- Buffer tabs
+│       ├── bufferline.lua    -- Buffer tabs #unused
 │       ├── lualine.lua       -- Statusline
 │       ├── formatting.lua    -- Conform (prettier, stylua, black)
 │       ├── linting.lua       -- nvim-lint
@@ -43,6 +43,30 @@ nvim/
 - Git
 - [Nerd Font](https://www.nerdfonts.com/) (for icons)
 - [LazyGit](https://github.com/jesseduffield/lazygit) (optional)
+
+Not managed by Mason:
+
+- **Laravel:** `laravel-lsp` (install with Composer)
+
+### Laravel LSP
+
+Install Laravel LSP globally:
+
+```bash
+composer global require laravel/lsp
+```
+
+Make sure Composer's global `vendor/bin` is in your `PATH`:
+
+```bash
+export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+```
+
+Verify:
+
+```bash
+which laravel-lsp
+```
 
 ## Key Bindings
 
