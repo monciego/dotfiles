@@ -71,7 +71,7 @@ vim.o.backspace = "indent,eol,start" -- Make backspace behave intuitively
 -- Conceal & List Characters
 vim.o.conceallevel = 0 -- Show all conceal syntax (e.g., `` in markdown)
 vim.o.list = true -- Show invisible characters
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.listchars = { tab = "│ ", trail = "·", nbsp = "␣" }
 
 -- Format Options
 -- vim.opt.formatoptions:remove({ "c", "r", "o" }) -- Don't auto-insert comment leaders
