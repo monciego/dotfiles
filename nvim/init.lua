@@ -30,4 +30,5 @@ require("lazy").setup({
 	require("plugins.lazygit"),
 	require("plugins.breadcrumbs"),
 	require("plugins.noice"),
+	require("plugins.nvim-tmux-navigation"),
 })
