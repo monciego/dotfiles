@@ -72,7 +72,7 @@ return {
 					{
 						"filename",
 						file_status = true,
-						path = 0,
+						path = 1,
 					},
 				},
 
