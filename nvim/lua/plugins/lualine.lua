@@ -1,4 +1,3 @@
--- Set lualine as statusline
 return {
 	"nvim-lualine/lualine.nvim",
 	config = function()
@@ -94,8 +93,10 @@ return {
 				},
 
 				lualine_z = {
-					require("noice").api.status.command.get,
-					cond = require("noice").api.status.command.has,
+					{
+						require("noice").api.status.command.get,
+						cond = require("noice").api.status.command.has,
+					},
 				},
 			},
 
