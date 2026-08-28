@@ -8,7 +8,7 @@ vim.o.numberwidth = 4 -- Width of the number column
 vim.wo.number = true -- Enable line numbers (window-local)
 vim.o.winborder = "rounded" -- Use rounded borders for floating windows
 vim.opt.fillchars = { eob = " " } -- Hide ~ characters on empty lines
-vim.opt.cmdheight = 1 -- Height of command line area
+-- vim.o.cmdheight = 0 -- Height of command line area
 vim.opt.pumheight = 10 -- Maximum height of popup menu
 vim.opt.ruler = true -- Show cursor position in command line
 
@@ -54,7 +54,7 @@ vim.o.updatetime = 250 -- Faster update time
 vim.o.timeoutlen = 300 -- Time to wait for mapped sequence
 
 -- Command Line & Messages
-vim.o.cmdheight = 1 -- Minimal command line height
+vim.o.cmdheight = 0 -- Minimal command line height
 vim.o.showmode = false -- Don't show mode (e.g., -- INSERT --)
 vim.o.inccommand = "split" -- Live preview of :s command
 vim.o.confirm = true -- Prompt to save before closing unsaved files

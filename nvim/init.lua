@@ -29,4 +29,5 @@ require("lazy").setup({
 	require("plugins.gitsigns"),
 	require("plugins.lazygit"),
 	require("plugins.breadcrumbs"),
+	require("plugins.noice"),
 })
