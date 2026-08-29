@@ -31,4 +31,5 @@ require("lazy").setup({
 	require("plugins.breadcrumbs"),
 	require("plugins.noice"),
 	require("plugins.nvim-tmux-navigation"),
+	require("plugins.vim-test"),
 })
