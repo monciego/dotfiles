@@ -31,7 +31,6 @@ return {
 					"black",
 					"pylint",
 					"eslint_d",
-					"php-cs-fixer",
 					"phpstan",
 					"markdownlint-cli2",
 				},

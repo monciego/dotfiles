@@ -21,7 +21,7 @@ return {
 				liquid = { "prettier" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
-				php = { "php_cs_fixer" },
+				php = { "pint" },
 				go = { "gofmt" },
 				rust = { "rustfmt" },
 				c = { "clang_format" },
