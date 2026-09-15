@@ -32,4 +32,5 @@ require("lazy").setup({
 	require("plugins.noice"),
 	require("plugins.nvim-tmux-navigation"),
 	require("plugins.vim-test"),
+	require("plugins.opencode"),
 })
