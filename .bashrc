@@ -29,7 +29,7 @@ export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
 
 # Android
 
-export ANDROID_HOME="$HOME/Android/Sdk"
+export ANDROID_HOME="$HOME/Android"
 
 # Development
 
