@@ -45,30 +45,30 @@ return {
 				theme = {
 					normal = {
 						a = { fg = "#ebdbb2", bg = "#3c3836" },
-						b = { fg = "#ebdbb2", bg = "#262a2b" },
-						c = { fg = "#ebdbb2", bg = "#262a2b" },
+						b = { fg = "#ebdbb2", bg = "#282828" },
+						c = { fg = "#ebdbb2", bg = "#1c1c1c" },
 					},
 
 					insert = {
-						a = { fg = "#262a2b", bg = "#83a598" },
+						a = { fg = "#1c1c1c", bg = "#83a598" },
 					},
 
 					visual = {
-						a = { fg = "#262a2b", bg = "#d3869b" },
+						a = { fg = "#1c1c1c", bg = "#d3869b" },
 					},
 
 					replace = {
-						a = { fg = "#262a2b", bg = "#fb4934" },
+						a = { fg = "#1c1c1c", bg = "#fb4934" },
 					},
 
 					command = {
-						a = { fg = "#262a2b", bg = "#fabd2f" },
+						a = { fg = "#1c1c1c", bg = "#fabd2f" },
 					},
 
 					inactive = {
-						a = { fg = "#928374", bg = "#262a2b" },
-						b = { fg = "#928374", bg = "#262a2b" },
-						c = { fg = "#928374", bg = "#262a2b" },
+						a = { fg = "#928374", bg = "#1c1c1c" },
+						b = { fg = "#928374", bg = "#1c1c1c" },
+						c = { fg = "#928374", bg = "#1c1c1c" },
 					},
 				},
 				section_separators = {
