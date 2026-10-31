@@ -46,7 +46,7 @@ cp ~/dotfiles/obsidian/.obsidian.vimrc ~/path/to/vault/
 
 - **Neovim** `>= 0.11` — see [nvim/README.md](./nvim/README.md) for plugins, keybindings, and Laravel LSP setup.
 - **Nerd Font** for icons, **Git**, and optionally **LazyGit**.
-- Toolchains referenced in `.bashrc`: Node/nvm, pnpm, bun, PHP (herd-lite), Java 17, Android SDK, Rust (cargo), Go, Composer.
+- Toolchains referenced in `.bashrc`: Node/nvm, pnpm, bun, PHP (herd-lite), Java 17, Android SDK, Rust (cargo), Go, Composer. All are optional: `.bashrc` only adds a PATH entry when that directory exists.
 
 ## How it works
 

@@ -68,11 +68,6 @@
     "context": "Picker > Editor",
     "bindings": {
       "ctrl-k": "menu::SelectPrevious",
-    },
-  },
-  {
-    "context": "Picker > Editor",
-    "bindings": {
       "ctrl-j": "menu::SelectNext",
     },
   },

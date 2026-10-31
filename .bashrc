@@ -1,6 +1,3 @@
-# nvim
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
-
 # Node.js
 
 export NVM_DIR="$HOME/.nvm"
@@ -36,37 +33,28 @@ export ANDROID_HOME="$HOME/Android"
 export VCPKG_ROOT="$HOME/vcpkg"
 
 # PATH
+# path_prepend/path_append add a directory only if it exists and isn't already in PATH.
+path_prepend() { [ -d "$1" ] && case ":$PATH:" in *":$1:"*) ;; *) PATH="$1:$PATH" ;; esac; }
+path_append() { [ -d "$1" ] && case ":$PATH:" in *":$1:"*) ;; *) PATH="$PATH:$1" ;; esac; }
 
-export PATH="
-$HOME/.console-ninja/.bin:
-$HOME/.config/composer/vendor/bin:
-$HOME/.local/bin:
-$HOME/.config/herd-lite/bin:
-$ANDROID_HOME/emulator:
-$ANDROID_HOME/platform-tools:
-$ANDROID_HOME/cmdline-tools/latest/bin:
-$JAVA_HOME/bin:
-$BUN_INSTALL/bin:
-$PATH"
+# Lowest priority first: each prepend goes in front of the previous one.
+path_prepend "$HOME/.console-ninja/.bin"
+path_prepend "$HOME/.config/herd-lite/bin"
+path_prepend "$ANDROID_HOME/emulator"
+path_prepend "$ANDROID_HOME/platform-tools"
+path_prepend "$ANDROID_HOME/cmdline-tools/latest/bin"
+path_prepend "$JAVA_HOME/bin"
+path_prepend "$BUN_INSTALL/bin"
+path_prepend "$HOME/.local/bin"
+path_prepend "$HOME/.opencode/bin"
+path_prepend "$PNPM_HOME/bin"
+path_prepend "$HOME/.config/composer/vendor/bin"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
+path_append "/opt/nvim-linux-x86_64/bin"
+path_append "/usr/local/go/bin"
+path_append "$HOME/go/bin"
+
+export PATH
 
 # rust
-. "$HOME/.cargo/env"
-
-# opencode
-export PATH=/home/monciego/.opencode/bin:$PATH
-
-# pnpm
-export PNPM_HOME="/home/monciego/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME/bin:"*) ;;
-  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
-esac
-# pnpm end
-export PATH=$PATH:/usr/local/go/bin
-export PATH="$HOME/.config/composer/vendor/bin:$PATH"
-export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
