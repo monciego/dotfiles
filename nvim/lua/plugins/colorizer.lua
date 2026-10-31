@@ -25,11 +25,26 @@ return {
 			display = {
 				mode = "virtualtext",
 				virtualtext = {
-					char = "■",
-					position = "before", -- Swatch in front of the color, like VS Code
+					char = "󰝤", -- Nerd Font square (nf-md-square), sized to the text
+					position = "before", -- Swatch in front of the color, like Zed
 					hl_mode = "foreground",
 				},
 			},
 		},
 	},
+	config = function(_, opts)
+		-- colorizer always pads "before" swatches with a trailing space. Strip it
+		-- so the swatch sits right against the color, like Zed.
+		local ns = vim.api.nvim_create_namespace("colorizer")
+		local set_extmark = vim.api.nvim_buf_set_extmark
+		vim.api.nvim_buf_set_extmark = function(bufnr, ns_id, line, col, extmark_opts)
+			if ns_id == ns and extmark_opts and extmark_opts.virt_text_pos == "inline" and extmark_opts.virt_text then
+				local chunk = extmark_opts.virt_text[1]
+				chunk[1] = chunk[1]:gsub(" $", "")
+			end
+			return set_extmark(bufnr, ns_id, line, col, extmark_opts)
+		end
+
+		require("colorizer").setup(opts)
+	end,
 }
