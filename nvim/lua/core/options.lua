@@ -11,6 +11,7 @@ vim.opt.fillchars = { eob = " " } -- Hide ~ characters on empty lines
 -- vim.o.cmdheight = 0 -- Height of command line area
 vim.opt.pumheight = 10 -- Maximum height of popup menu
 vim.opt.ruler = true -- Show cursor position in command line
+vim.o.guicursor = "n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor,t:block-blinkon500-blinkoff500-TermCursor" -- Color the cursor with the Cursor highlight group
 
 -- Scrolling & Wrapping
 vim.o.wrap = false -- Don't wrap lines

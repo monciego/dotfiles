@@ -89,6 +89,7 @@ return {
 				all = function(colors)
 					return {
 						CmpItemMenu = { fg = colors.surface2 },
+						Cursor = { fg = colors.base, bg = "#fabd2f" },
 						CursorLineNr = { fg = colors.text },
 						FloatBorder = { bg = colors.base, fg = colors.surface0 },
 						GitSignsChange = { fg = colors.peach },
