@@ -4,34 +4,7 @@ require("core.keymaps")
 require("core.autocmds")
 require("config.lazy")
 
--- Setup lazy.nvim plugins
+-- Setup lazy.nvim plugins: every file in lua/plugins/ is loaded automatically
 require("lazy").setup({
-	require("plugins.treesitter"),
-	require("plugins.colortheme"),
-	require("plugins.neotree"),
-	-- require("plugins.bufferline"),
-	require("plugins.lualine"),
-	require("plugins.telescope"),
-	require("plugins.whichkey"),
-	require("plugins.alpha"),
-	require("plugins.autosession"),
-	require("plugins.dressing"),
-	require("plugins.indent-blankline"),
-	require("plugins.autocomplete"),
-	require("plugins.autopairs"),
-	require("plugins.comment"),
-	require("plugins.todo-comments"),
-	require("plugins.surround"),
-	require("plugins.lsp"),
-	require("plugins.trouble"),
-	require("plugins.formatting"),
-	require("plugins.linting"),
-	require("plugins.gitsigns"),
-	require("plugins.lazygit"),
-	require("plugins.breadcrumbs"),
-	require("plugins.noice"),
-	require("plugins.nvim-tmux-navigation"),
-	require("plugins.vim-test"),
-	require("plugins.opencode"),
-	require("plugins.colorizer"),
+	{ import = "plugins" },
 })

@@ -4,42 +4,48 @@
 
 ```text
 nvim/
-├── init.lua                  -- Entry point
+├── init.lua                     -- Entry point (auto-imports lua/plugins/)
 ├── lua/
 │   ├── config/
-│   │   └── lazy.lua          -- Bootstraps lazy.nvim
+│   │   └── lazy.lua             -- Bootstraps lazy.nvim
 │   ├── core/
-│   │   ├── options.lua       -- Editor settings
-│   │   └── keymaps.lua       -- Keybindings
-│   └── plugins/
-│       ├── treesitter.lua    -- Syntax highlighting
-│       ├── colortheme.lua    -- Catppuccin (mocha)
-│       ├── lsp.lua           -- LSP + Mason
-│       ├── telescope.lua     -- Fuzzy finder
-│       ├── autocomplete.lua  -- nvim-cmp completion
-│       ├── neotree.lua       -- File explorer
-│       ├── bufferline.lua    -- Buffer tabs #unused
-│       ├── lualine.lua       -- Statusline
-│       ├── formatting.lua    -- Conform (prettier, stylua, black)
-│       ├── linting.lua       -- nvim-lint
-│       ├── gitsigns.lua      -- Git signs in gutter
-│       ├── trouble.lua       -- diagnostics panel
-│       ├── whichkey.lua      -- keymap hints popup
-│       ├── alpha.lua         -- Start screen
-│       ├── autosession.lua   -- Auto session restore
-│       ├── comment.lua       -- Toggle comments (gcc)
-│       ├── surround.lua      -- Surround text (ys, ds, cs)
-│       ├── autopairs.lua     -- Auto-close brackets
-│       ├── todo-comments.lua -- Highlight TODO/FIXME
+│   │   ├── options.lua          -- Editor settings
+│   │   ├── keymaps.lua          -- Keybindings
+│   │   └── autocmds.lua         -- Autocommands
+│   └── plugins/                 -- One file per plugin, loaded automatically
+│       ├── alpha.lua            -- Start screen
+│       ├── autocomplete.lua     -- nvim-cmp completion
+│       ├── autopairs.lua        -- Auto-close brackets
+│       ├── autosession.lua      -- Session save/restore
+│       ├── breadcrumbs.lua      -- Code context in winbar
+│       ├── colorizer.lua        -- Color swatches before color codes
+│       ├── colortheme.lua       -- Catppuccin with gruvbox colors
+│       ├── comment.lua          -- Toggle comments (gcc)
+│       ├── dressing.lua         -- Better UI inputs
+│       ├── formatting.lua       -- Conform (prettier, stylua, pint, ...)
+│       ├── gitsigns.lua         -- Git signs in gutter
 │       ├── indent-blankline.lua -- Indent guides
-│       ├── dressing.lua      -- Better UI inputs
-│       └── lazygit.lua       -- LazyGit integration
-└── lazy-lock.json            -- Plugin version lockfile
+│       ├── lazygit.lua          -- LazyGit integration
+│       ├── linting.lua          -- nvim-lint
+│       ├── lsp.lua              -- LSP + Mason
+│       ├── lualine.lua          -- Statusline
+│       ├── neotree.lua          -- File explorer
+│       ├── noice.lua            -- Cmdline and popup UI
+│       ├── nvim-tmux-navigation.lua -- Ctrl+h/j/k/l across nvim and tmux
+│       ├── opencode.lua         -- OpenCode integration
+│       ├── surround.lua         -- Surround text (ys, ds, cs)
+│       ├── telescope.lua        -- Fuzzy finder
+│       ├── todo-comments.lua    -- Highlight TODO/FIXME
+│       ├── treesitter.lua       -- Syntax highlighting
+│       ├── trouble.lua          -- Diagnostics panel
+│       ├── vim-test.lua         -- Run tests in a tmux pane
+│       └── whichkey.lua         -- Keymap hints popup
+└── lazy-lock.json               -- Plugin version lockfile
 ```
 
 ## Requirements
 
-- Neovim >= 0.10
+- Neovim >= 0.11
 - Git
 - [Nerd Font](https://www.nerdfonts.com/) (for icons)
 - [LazyGit](https://github.com/jesseduffield/lazygit) (optional)
@@ -84,15 +90,18 @@ Leader key is `<Space>`.
 | `<leader>sf`              | Normal | Find files                |
 | `<leader>sg`              | Normal | Live grep                 |
 | `<leader>lg`              | Normal | Open LazyGit              |
+| `<leader>tt` / `<leader>tf` | Normal | Test nearest / test file |
+| `<leader>do`              | Normal | Toggle diagnostics        |
 | `gcc`                     | Normal | Toggle line comment       |
 | `gc`                      | Visual | Toggle comment selection  |
 
 ## Install
 
-Clone to your Neovim config directory:
+This config is part of the [dotfiles](../README.md) repo. Clone it and run `setup.sh`, which symlinks `nvim/` to `~/.config/nvim`:
 
 ```bash
-git clone <repo-url> ~/.config/nvim
+git clone https://github.com/monciego/dotfiles ~/dotfiles
+~/dotfiles/setup.sh
 ```
 
-Plugins install automatically on first launch via lazy.nvim.
+Plugins install automatically on first launch via lazy.nvim. To add a plugin, drop a new file in `lua/plugins/` that returns a lazy.nvim spec.

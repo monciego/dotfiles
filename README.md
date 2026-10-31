@@ -44,7 +44,7 @@ cp ~/dotfiles/obsidian/.obsidian.vimrc ~/path/to/vault/
 
 ## Requirements
 
-- **Neovim** `>= 0.10` — see [nvim/README.md](./nvim/README.md) for plugins, keybindings, and Laravel LSP setup.
+- **Neovim** `>= 0.11` — see [nvim/README.md](./nvim/README.md) for plugins, keybindings, and Laravel LSP setup.
 - **Nerd Font** for icons, **Git**, and optionally **LazyGit**.
 - Toolchains referenced in `.bashrc`: Node/nvm, pnpm, bun, PHP (herd-lite), Java 17, Android SDK, Rust (cargo), Go, Composer.
 
