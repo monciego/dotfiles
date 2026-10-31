@@ -32,6 +32,7 @@ return {
 					"pylint",
 					"eslint_d",
 					"phpstan",
+					"pint",
 					"markdownlint-cli2",
 				},
 			},
@@ -150,7 +151,6 @@ return {
 			end,
 		})
 
-		vim.lsp.enable("laravel_lsp")
 		-- Enable all servers listed above.
 		vim.lsp.enable(servers)
 		vim.lsp.enable("laravel_lsp")
@@ -174,16 +174,6 @@ return {
 				vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 				vim.keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
-				vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
-
-				vim.keymap.set("n", "[d", function()
-					vim.diagnostic.jump({ count = -1 })
-				end, opts)
-
-				vim.keymap.set("n", "]d", function()
-					vim.diagnostic.jump({ count = 1 })
-				end, opts)
-
 				vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
 				-- Native restart: `:LspRestart` is not guaranteed to exist across
@@ -207,7 +197,7 @@ return {
 		vim.diagnostic.config({
 			virtual_lines = false,
 			virtual_text = true,
-			update_in_insert = true,
+			update_in_insert = false,
 
 			signs = {
 				text = {

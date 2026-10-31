@@ -6,10 +6,10 @@ return {
 	config = function()
 		vim.g["test#strategy"] = "vimux"
 
-		vim.keymap.set("n", "<leader>t", "<cmd>TestNearest<CR>")
-		vim.keymap.set("n", "<leader>T", "<cmd>TestFile<CR>")
-		vim.keymap.set("n", "<leader>a", "<cmd>TestSuite<CR>")
-		vim.keymap.set("n", "<leader>l", "<cmd>TestLast<CR>")
-		vim.keymap.set("n", "<leader>g", "<cmd>TestVisit<CR>")
+		vim.keymap.set("n", "<leader>tt", "<cmd>TestNearest<CR>", { desc = "Test nearest" })
+		vim.keymap.set("n", "<leader>tf", "<cmd>TestFile<CR>", { desc = "Test file" })
+		vim.keymap.set("n", "<leader>ta", "<cmd>TestSuite<CR>", { desc = "Test suite" })
+		vim.keymap.set("n", "<leader>tl", "<cmd>TestLast<CR>", { desc = "Test last" })
+		vim.keymap.set("n", "<leader>tv", "<cmd>TestVisit<CR>", { desc = "Visit last test file" })
 	end,
 }

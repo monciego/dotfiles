@@ -4,7 +4,8 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-buffer", -- source for text in buffer
 		"hrsh7th/cmp-path", -- source for file system paths
-		"hrsh7th/cmp-nvim-lsp", -- LSP completion source (MISSING!)
+		"hrsh7th/cmp-cmdline", -- source for : commands
+		"hrsh7th/cmp-nvim-lsp", -- LSP completion source
 		"hrsh7th/cmp-nvim-lua", -- Lua completion for neovim config
 		{
 			"L3MON4D3/LuaSnip",

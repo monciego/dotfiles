@@ -1,6 +1,6 @@
 -- UI: General Display
 vim.o.termguicolors = true -- Enable GUI colors for terminal
-vim.o.cursorline = false -- Highlight the current line
+vim.o.cursorline = false -- Don't highlight the current line
 vim.o.signcolumn = "yes:1" -- Always show sign column with width of 1
 vim.o.number = true -- Show absolute line numbers
 vim.o.relativenumber = true -- Show relative line numbers
@@ -8,8 +8,6 @@ vim.o.numberwidth = 4 -- Width of the number column
 vim.wo.number = true -- Enable line numbers (window-local)
 vim.o.winborder = "rounded" -- Use rounded borders for floating windows
 vim.opt.fillchars = { eob = " " } -- Hide ~ characters on empty lines
--- vim.o.cmdheight = 0 -- Height of command line area
-vim.opt.pumheight = 10 -- Maximum height of popup menu
 vim.opt.ruler = true -- Show cursor position in command line
 vim.o.guicursor = "n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor,t:block-blinkon500-blinkoff500-TermCursor" -- Color the cursor with the Cursor highlight group
 
@@ -29,7 +27,7 @@ vim.o.mouse = "a" -- Enable mouse support
 -- Tabs & Indentation
 vim.o.tabstop = 2 -- Number of spaces per tab
 vim.o.shiftwidth = 2 -- Number of spaces per indent
-vim.o.softtabstop = 4 -- Editing operations count tab as 4 spaces
+vim.o.softtabstop = 2 -- Editing operations count tab as 2 spaces
 vim.o.expandtab = true -- Convert tabs to spaces
 vim.o.smartindent = true -- Smarter auto-indenting
 vim.o.autoindent = true -- Copy indent from current line
@@ -61,7 +59,7 @@ vim.o.inccommand = "split" -- Live preview of :s command
 vim.o.confirm = true -- Prompt to save before closing unsaved files
 
 -- UI: Tabs & Status
-vim.o.showtabline = 0 -- Always show tab line
+vim.o.showtabline = 0 -- Never show tab line
 
 -- File Encoding
 vim.o.fileencoding = "utf-8" -- Use UTF-8 for file encoding

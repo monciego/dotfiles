@@ -62,12 +62,6 @@ vim.keymap.set("n", "<leader>h", "<C-w>s", opts) -- split window horizontally
 vim.keymap.set("n", "<leader>se", "<C-w>=", opts) -- make split windows equal width & height
 vim.keymap.set("n", "<leader>xs", ":close<CR>", opts) -- close current split window
 
--- Navigate between splits
-vim.keymap.set("n", "<C-k>", ":wincmd k<CR>", opts)
-vim.keymap.set("n", "<C-j>", ":wincmd j<CR>", opts)
-vim.keymap.set("n", "<C-h>", ":wincmd h<CR>", opts)
-vim.keymap.set("n", "<C-l>", ":wincmd l<CR>", opts)
-
 -- Tabs
 vim.keymap.set("n", "<leader>to", ":tabnew<CR>", opts) -- open new tab
 vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", opts) -- close current tab
@@ -100,17 +94,9 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Toggle diagnostics
-local diagnostics_active = true
-
 vim.keymap.set("n", "<leader>do", function()
-	diagnostics_active = not diagnostics_active
-
-	if diagnostics_active then
-		vim.diagnostic.enable(0)
-	else
-		vim.diagnostic.disable(0)
-	end
-end)
+	vim.diagnostic.enable(not vim.diagnostic.is_enabled({ bufnr = 0 }), { bufnr = 0 })
+end, { desc = "Toggle diagnostics" })
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", function()
