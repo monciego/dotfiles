@@ -7,6 +7,7 @@ Personal dotfiles and configs fueled by nicotine and caffeine. Managed with syml
 | Path              | Tool                          | Symlink target                   |
 | ----------------- | ----------------------------- | -------------------------------- |
 | `.bashrc`         | Bash shell                    | `~/.bashrc`                      |
+| `.vimrc`          | Vim (minimal, no plugins)     | `~/.vimrc`                       |
 | `.profile`        | Login shell env               | `~/.profile`                     |
 | `.gitconfig`      | Git                           | `~/.gitconfig`                   |
 | `nvim/`           | Neovim (lazy.nvim, LSP, etc.) | `~/.config/nvim`                 |
@@ -29,7 +30,7 @@ Personal dotfiles and configs fueled by nicotine and caffeine. Managed with syml
    ~/dotfiles/setup.sh
    ```
 
-   This installs TPM if needed and symlinks .bashrc, .profile, .gitconfig, tmux, and the nvim/ghostty/zed config dirs into place.
+   This installs TPM if needed and symlinks .bashrc, .vimrc, .profile, .gitconfig, tmux, and the nvim/ghostty/zed config dirs into place.
 
 3. Reload your shell: `source ~/.bashrc`.
 

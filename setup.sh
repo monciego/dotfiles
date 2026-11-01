@@ -13,6 +13,7 @@ fi
 
 # Home files
 ln -sf "$DOTFILES_DIR/.bashrc" ~/.bashrc
+ln -sf "$DOTFILES_DIR/.vimrc" ~/.vimrc
 ln -sf "$DOTFILES_DIR/.gitconfig" ~/.gitconfig
 ln -sf "$DOTFILES_DIR/.profile" ~/.profile
 ln -sf "$DOTFILES_DIR/tmux/.tmux.conf" ~/.tmux.conf
