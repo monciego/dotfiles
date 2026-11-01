@@ -33,6 +33,7 @@ nvim/
 │       ├── noice.lua            -- Cmdline and popup UI
 │       ├── nvim-tmux-navigation.lua -- Ctrl+h/j/k/l across nvim and tmux
 │       ├── opencode.lua         -- OpenCode integration
+│       ├── snacks.lua           -- Image preview (snacks.image)
 │       ├── surround.lua         -- Surround text (ys, ds, cs)
 │       ├── telescope.lua        -- Fuzzy finder
 │       ├── todo-comments.lua    -- Highlight TODO/FIXME
@@ -49,6 +50,7 @@ nvim/
 - Git
 - [Nerd Font](https://www.nerdfonts.com/) (for icons)
 - [LazyGit](https://github.com/jesseduffield/lazygit) (optional)
+- Image preview: a terminal with the Kitty graphics protocol (Ghostty, Kitty, WezTerm), ImageMagick, and `allow-passthrough on` when inside tmux
 
 Not managed by Mason:
 
@@ -92,6 +94,7 @@ Leader key is `<Space>`.
 | `<leader>lg`              | Normal | Open LazyGit              |
 | `<leader>tt` / `<leader>tf` | Normal | Test nearest / test file |
 | `<leader>do`              | Normal | Toggle diagnostics        |
+| `<leader>ip`              | Normal | Preview image under cursor |
 | `gcc`                     | Normal | Toggle line comment       |
 | `gc`                      | Visual | Toggle comment selection  |
 
