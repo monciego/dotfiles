@@ -22,9 +22,12 @@ nvim/
 │       ├── colortheme.lua       -- Catppuccin with gruvbox colors
 │       ├── comment.lua          -- Toggle comments (gcc)
 │       ├── dressing.lua         -- Better UI inputs
+│       ├── diffview.lua         -- Side-by-side git diffs and file history
+│       ├── flash.lua            -- Jump anywhere with s + 2 chars
 │       ├── formatting.lua       -- Conform (prettier, stylua, pint, ...)
 │       ├── gitsigns.lua         -- Git signs in gutter
 │       ├── indent-blankline.lua -- Indent guides
+│       ├── grug-far.lua         -- Project-wide search and replace
 │       ├── lazygit.lua          -- LazyGit integration
 │       ├── linting.lua          -- nvim-lint
 │       ├── lsp.lua              -- LSP + Mason
@@ -33,11 +36,13 @@ nvim/
 │       ├── noice.lua            -- Cmdline and popup UI
 │       ├── nvim-tmux-navigation.lua -- Ctrl+h/j/k/l across nvim and tmux
 │       ├── opencode.lua         -- OpenCode integration
+│       ├── render-markdown.lua  -- Render markdown in the buffer
 │       ├── snacks.lua           -- Image preview (snacks.image)
 │       ├── surround.lua         -- Surround text (ys, ds, cs)
 │       ├── telescope.lua        -- Fuzzy finder
 │       ├── todo-comments.lua    -- Highlight TODO/FIXME
 │       ├── treesitter.lua       -- Syntax highlighting
+│       ├── treesitter-textobjects.lua -- af/if, ac/ic, aa/ia, ]f/[f
 │       ├── trouble.lua          -- Diagnostics panel
 │       ├── vim-test.lua         -- Run tests in a tmux pane
 │       └── whichkey.lua         -- Keymap hints popup
@@ -95,6 +100,12 @@ Leader key is `<Space>`.
 | `<leader>tt` / `<leader>tf` | Normal | Test nearest / test file |
 | `<leader>do`              | Normal | Toggle diagnostics        |
 | `<leader>ip`              | Normal | Preview image under cursor |
+| `s` / `S`                 | Normal | Flash jump / select treesitter node |
+| `vaf` `dif` `cia` `yac`   | Normal | Function, argument and class text objects |
+| `]f` / `[f`, `]k` / `[k`  | Normal | Next/prev function, next/prev class |
+| `<leader>sR` / `<leader>sW` | Normal/Visual | Project search & replace (grug-far) / replace word under cursor |
+| `<leader>gd` / `<leader>gh` / `<leader>gH` | Normal | Diffview changes / file history / repo history (`<leader>gq` closes) |
+| `<leader>mr`              | Normal | Toggle markdown rendering |
 | `gcc`                     | Normal | Toggle line comment       |
 | `gc`                      | Visual | Toggle comment selection  |
 
