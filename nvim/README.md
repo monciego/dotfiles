@@ -46,6 +46,7 @@ nvim/
 │       ├── trouble.lua          -- Diagnostics panel
 │       ├── vim-test.lua         -- Run tests in a tmux pane
 │       └── whichkey.lua         -- Keymap hints popup
+├── snippets/                    -- Your own snippets (SnipMate .snippets format, see below)
 └── lazy-lock.json               -- Plugin version lockfile
 ```
 
@@ -85,29 +86,60 @@ which laravel-lsp
 
 Leader key is `<Space>`.
 
-| Key                       | Mode   | Action                    |
-| ------------------------- | ------ | ------------------------- |
-| `jk` / `kj`               | Insert | Exit insert mode          |
-| `Ctrl+s`                  | Normal | Save file                 |
-| `Ctrl+h/j/k/l`            | Normal | Navigate splits           |
-| `Tab` / `Shift-Tab`       | Normal | Next/prev buffer          |
-| `<leader>v` / `<leader>h` | Normal | Vertical/horizontal split |
-| `<leader>c`               | Normal | Close buffer              |
-| `<leader>e`               | Normal | Toggle file explorer      |
-| `<leader>sf`              | Normal | Find files                |
-| `<leader>sg`              | Normal | Live grep                 |
-| `<leader>lg`              | Normal | Open LazyGit              |
-| `<leader>tt` / `<leader>tf` | Normal | Test nearest / test file |
-| `<leader>do`              | Normal | Toggle diagnostics        |
-| `<leader>ip`              | Normal | Preview image under cursor |
-| `s` / `S`                 | Normal | Flash jump / select treesitter node |
-| `vaf` `dif` `cia` `yac`   | Normal | Function, argument and class text objects |
-| `]f` / `[f`, `]k` / `[k`  | Normal | Next/prev function, next/prev class |
-| `<leader>sR` / `<leader>sW` | Normal/Visual | Project search & replace (grug-far) / replace word under cursor |
-| `<leader>gd` / `<leader>gh` / `<leader>gH` | Normal | Diffview changes / file history / repo history (`<leader>gq` closes) |
-| `<leader>mr`              | Normal | Toggle markdown rendering |
-| `gcc`                     | Normal | Toggle line comment       |
-| `gc`                      | Visual | Toggle comment selection  |
+| Key                                        | Mode          | Action                                                               |
+| ------------------------------------------ | ------------- | -------------------------------------------------------------------- |
+| `jk` / `kj`                                | Insert        | Exit insert mode                                                     |
+| `Ctrl+s`                                   | Normal        | Save file                                                            |
+| `Ctrl+h/j/k/l`                             | Normal        | Navigate splits                                                      |
+| `Tab` / `Shift-Tab`                        | Normal        | Next/prev buffer                                                     |
+| `<leader>v` / `<leader>h`                  | Normal        | Vertical/horizontal split                                            |
+| `<leader>c`                                | Normal        | Close buffer                                                         |
+| `<leader>e`                                | Normal        | Toggle file explorer                                                 |
+| `<leader>sf`                               | Normal        | Find files                                                           |
+| `<leader>sg`                               | Normal        | Live grep                                                            |
+| `<leader>lg`                               | Normal        | Open LazyGit                                                         |
+| `<leader>tt` / `<leader>tf`                | Normal        | Test nearest / test file                                             |
+| `<leader>do`                               | Normal        | Toggle diagnostics                                                   |
+| `<leader>ip`                               | Normal        | Preview image under cursor                                           |
+| `s` / `S`                                  | Normal        | Flash jump / select treesitter node                                  |
+| `vaf` `dif` `cia` `yac`                    | Normal        | Function, argument and class text objects                            |
+| `]f` / `[f`, `]k` / `[k`                   | Normal        | Next/prev function, next/prev class                                  |
+| `<leader>sR` / `<leader>sW`                | Normal/Visual | Project search & replace (grug-far) / replace word under cursor      |
+| `<leader>gd` / `<leader>gh` / `<leader>gH` | Normal        | Diffview changes / file history / repo history (`<leader>gq` closes) |
+| `<leader>mr`                               | Normal        | Toggle markdown rendering                                            |
+| `gcc`                                      | Normal        | Toggle line comment                                                  |
+| `gc`                                       | Visual        | Toggle comment selection                                             |
+
+## Snippets
+
+Snippets come from [friendly-snippets](https://github.com/rafamadriz/friendly-snippets) plus your own in `snippets/`. Type the trigger, pick it in the completion menu (`Tab`/`C-j`, then `Enter`), then `Tab` / `S-Tab` to jump between the blanks.
+
+| File | Used in | Triggers |
+| --- | --- | --- |
+| `php/php.snippets` | php | `phpclass` `pubf` `prif` `prof` `ctor` `strict` `fnn` `match` |
+| `php/laravel.snippets` | php | `lctrl` `lmodel` `lmig` `lrel` `lroute` `lroutef` `lval` `ltest` `ltestu` `lfactory` |
+| `blade.snippets` | blade | `bx` `bform` `berror` `bold` |
+| `go.snippets` | go | `iferr` `iferrw` `meth` `st` `jf` `hfunc` `ttest` |
+| `rust.snippets` | rust | `mainr` `st` `implnew` `fnr` `tmod` `mres` `pd` |
+| `c.snippets` | c | `mainc` `guard` `pf` `mallocc` `tstruct` `forn` |
+| `javascript.snippets` | js, ts, jsx, tsx | `cl` `afn` `aafn` `fetchj` `desc` `itt` |
+| `typescript.snippets` | ts, tsx | `intf` `typ` `asyncfn` |
+| `javascriptreact.snippets` | jsx, tsx | `rfc` `us` `ue` `uref` `umemo` `ucb` |
+| `typescriptreact.snippets` | tsx | `rfcp` |
+
+A file is named after the filetype it's for (`go.snippets`), or sits in a folder named after it (`php/*.snippets`). `extends` at the top of a file pulls in another filetype's snippets: `typescriptreact.snippets` extends `typescript` and `javascriptreact`. Restart Neovim after editing.
+
+Format: a `snippet <trigger> <description>` line, then the code indented by one tab. `$1`, `$2` are the blanks in `Tab` order, `${1:default}` gives a blank a default, `${1|a,b|}` is a pick-list, and `$0` is where the cursor ends. Escape a literal `$` as `\$` and a backtick as `` \` `` (unescaped backticks run Vim code).
+
+```snippets
+snippet pubf public function
+	public function ${1:name}(${2}): ${3:void}
+	{
+		$0
+	}
+```
+
+Emmet only suggests real HTML tags or Emmet syntax (`div.card`, `ul>li*3`), so plain words don't turn into `<word></word>` tags.
 
 ## Install
 

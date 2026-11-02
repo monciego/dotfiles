@@ -1,0 +1,17 @@
+# TypeScript
+extends javascript
+
+snippet intf interface
+	interface ${1:Name} {
+		$0
+	}
+
+snippet typ type alias
+	type ${1:Name} = {
+		$0
+	};
+
+snippet asyncfn async function with return type
+	async function ${1:name}(${2}): Promise<${3:void}> {
+		$0
+	}

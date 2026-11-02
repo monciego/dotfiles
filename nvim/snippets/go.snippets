@@ -1,0 +1,49 @@
+# Go
+
+snippet iferr if err != nil { return err }
+	if err != nil {
+		return ${1:err}
+	}
+
+snippet iferrw if err != nil { return fmt.Errorf(...%w) }
+	if err != nil {
+		return ${1:nil, }fmt.Errorf("${2:doing something}: %w", err)
+	}
+
+snippet meth method with pointer receiver
+	func (${1:r} *${2:Type}) ${3:Name}(${4}) ${5:error} {
+		$0
+	}
+
+snippet st type struct
+	type ${1:Name} struct {
+		$0
+	}
+
+snippet jf struct field with json tag
+	${1:Name} ${2:string} \`json:"${3:name}"\`
+
+snippet hfunc http handler func
+	func ${1:handler}(w http.ResponseWriter, r *http.Request) {
+		$0
+	}
+
+snippet ttest table-driven test
+	func Test${1:Name}(t *testing.T) {
+		tests := []struct {
+			name string
+			${2:input string}
+			want ${3:string}
+		}{
+			{name: "${4:basic}"},
+		}
+
+		for _, tt := range tests {
+			t.Run(tt.name, func(t *testing.T) {
+				got := ${5:fn}(tt.input)
+				if got != tt.want {
+					t.Errorf("got %v, want %v", got, tt.want)
+				}
+			})
+		}
+	}

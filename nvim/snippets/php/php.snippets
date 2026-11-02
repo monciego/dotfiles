@@ -1,0 +1,48 @@
+# PHP
+
+snippet phpclass <?php file with strict types, namespace and class
+	<?php
+
+	declare(strict_types=1);
+
+	namespace ${1:App};
+
+	class ${2:$TM_FILENAME_BASE}
+	{
+		$0
+	}
+
+snippet pubf public function
+	public function ${1:name}(${2}): ${3:void}
+	{
+		$0
+	}
+
+snippet prif private function
+	private function ${1:name}(${2}): ${3:void}
+	{
+		$0
+	}
+
+snippet prof protected function
+	protected function ${1:name}(${2}): ${3:void}
+	{
+		$0
+	}
+
+snippet ctor constructor with promoted properties
+	public function __construct(
+		private readonly ${1:Type} \$${2:name},
+	) {}
+
+snippet strict declare(strict_types=1)
+	declare(strict_types=1);
+
+snippet fnn arrow function fn() =>
+	fn(${1:\$item}) => ${0}
+
+snippet match match expression
+	match (${1:\$value}) {
+		${2:'a'} => ${3:1},
+		default => ${0:null},
+	};

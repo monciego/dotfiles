@@ -1,0 +1,29 @@
+# JavaScript (also used by TypeScript and React files via extends)
+
+snippet cl console.log with a label
+	console.log("${1:value}:", ${1});
+
+snippet afn const name = () => {}
+	const ${1:name} = (${2}) => {
+		$0
+	};
+
+snippet aafn const name = async () => {}
+	const ${1:name} = async (${2}) => {
+		$0
+	};
+
+snippet fetchj fetch + check + json
+	const ${1:res} = await fetch(${2:url});
+	if (!$1.ok) throw new Error(\`HTTP \${$1.status}\`);
+	const ${3:data} = await $1.json();
+
+snippet desc describe block
+	describe("${1:subject}", () => {
+		$0
+	});
+
+snippet itt it test
+	it("${1:does something}", ${2:async }() => {
+		$0
+	});

@@ -1,0 +1,45 @@
+# Rust
+
+snippet mainr fn main() -> Result
+	fn main() -> Result<(), Box<dyn std::error::Error>> {
+		$0
+		Ok(())
+	}
+
+snippet st struct with #[derive]
+	#[derive(Debug, Clone${1})]
+	pub struct ${2:Name} {
+		$0
+	}
+
+snippet implnew impl block with new()
+	impl ${1:Type} {
+		pub fn new(${2}) -> Self {
+			Self { $0 }
+		}
+	}
+
+snippet fnr fn returning Result
+	fn ${1:name}(${2}) -> Result<${3:()}, ${4:String}> {
+		$0
+	}
+
+snippet tmod #[cfg(test)] mod tests
+	#[cfg(test)]
+	mod tests {
+		use super::*;
+
+		#[test]
+		fn ${1:it_works}() {
+			$0
+		}
+	}
+
+snippet mres match on Ok/Err
+	match ${1:expr} {
+		Ok(${2:value}) => ${3:value},
+		Err(${4:e}) => ${0:return Err(e.into())},
+	}
+
+snippet pd println! with {:?}
+	println!("${1:value} = {:?}", ${1});

@@ -1,0 +1,30 @@
+# React (.jsx)
+extends javascript
+
+snippet rfc function component
+	export function ${1:$TM_FILENAME_BASE}() {
+		return (
+			<div>
+				$0
+			</div>
+		);
+	}
+
+snippet us useState
+	const [${1:value}, ${2:setValue}] = useState(${3});
+
+snippet ue useEffect
+	useEffect(() => {
+		$0
+	}, [${1}]);
+
+snippet uref useRef
+	const ${1:ref} = useRef(${2:null});
+
+snippet umemo useMemo
+	const ${1:value} = useMemo(() => ${2}, [${3}]);
+
+snippet ucb useCallback
+	const ${1:handler} = useCallback((${2}) => {
+		$0
+	}, [${3}]);

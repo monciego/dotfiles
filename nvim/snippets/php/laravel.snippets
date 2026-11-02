@@ -1,0 +1,109 @@
+# Laravel (PHP files)
+
+snippet lctrl Laravel controller class
+	<?php
+
+	namespace App\Http\Controllers;
+
+	use Illuminate\Http\Request;
+
+	class ${1:$TM_FILENAME_BASE} extends Controller
+	{
+		public function index()
+		{
+			$0
+		}
+
+		public function store(Request \$request)
+		{
+			\$validated = \$request->validate([
+				'${2:name}' => ['required', 'string', 'max:255'],
+			]);
+		}
+	}
+
+snippet lmodel Eloquent model
+	<?php
+
+	namespace App\Models;
+
+	use Illuminate\Database\Eloquent\Factories\HasFactory;
+	use Illuminate\Database\Eloquent\Model;
+
+	class ${1:$TM_FILENAME_BASE} extends Model
+	{
+		use HasFactory;
+
+		protected \$fillable = [
+			'${2:name}',
+		];
+
+		protected function casts(): array
+		{
+			return [
+				$0
+			];
+		}
+	}
+
+snippet lmig Laravel migration (create table)
+	<?php
+
+	use Illuminate\Database\Migrations\Migration;
+	use Illuminate\Database\Schema\Blueprint;
+	use Illuminate\Support\Facades\Schema;
+
+	return new class extends Migration
+	{
+		public function up(): void
+		{
+			Schema::create('${1:table}', function (Blueprint \$table) {
+				\$table->id();
+				$0
+				\$table->timestamps();
+			});
+		}
+
+		public function down(): void
+		{
+			Schema::dropIfExists('$1');
+		}
+	};
+
+snippet lrel Eloquent relationship method
+	public function ${1:posts}(): ${2|HasMany,BelongsTo,HasOne,BelongsToMany|}
+	{
+		return \$this->${3|hasMany,belongsTo,hasOne,belongsToMany|}(${4:Post}::class);
+	}
+
+snippet lroute Route to a controller method
+	Route::${1|get,post,put,patch,delete|}('${2:/path}', [${3:Controller}::class, '${4:index}'])->name('${5:name}');
+
+snippet lroutef Route with a closure
+	Route::${1|get,post,put,patch,delete|}('${2:/path}', function () {
+		$0
+	});
+
+snippet lval $request->validate([...])
+	\$validated = \$request->validate([
+		'${1:field}' => ['${2:required}'],
+	]);
+
+snippet ltest Pest test
+	it('${1:does something}', function () {
+		$0
+	});
+
+snippet ltestu PHPUnit test method
+	public function test_${1:it_works}(): void
+	{
+		$0
+	}
+
+snippet lfactory Factory definition()
+	public function definition(): array
+	{
+		return [
+			'${1:name}' => fake()->${2:name}(),
+		];
+	}

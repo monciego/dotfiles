@@ -1,0 +1,15 @@
+# React + TypeScript (.tsx)
+extends typescript, javascriptreact
+
+snippet rfcp function component with typed props
+	type ${1:$TM_FILENAME_BASE}Props = {
+		${2:title: string};
+	};
+
+	export function $1({ ${3:title} }: $1Props) {
+		return (
+			<div>
+				$0
+			</div>
+		);
+	}

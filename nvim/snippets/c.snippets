@@ -1,0 +1,40 @@
+# C
+
+snippet mainc main with stdio/stdlib
+	#include <stdio.h>
+	#include <stdlib.h>
+
+	int main(int argc, char *argv[]) {
+		$0
+		return 0;
+	}
+
+snippet guard header include guard
+	#ifndef ${1:NAME}_H
+	#define $1_H
+
+	$0
+
+	#endif /* $1_H */
+
+snippet pf printf with newline
+	printf("${1:%d}\n", ${2});
+
+snippet mallocc malloc with NULL check
+	${1:int} *${2:ptr} = malloc(${3:n} * sizeof(*$2));
+	if ($2 == NULL) {
+		perror("malloc");
+		return ${4:1};
+	}
+	$0
+	free($2);
+
+snippet tstruct typedef struct
+	typedef struct {
+		$0
+	} ${1:Name};
+
+snippet forn for (int i = 0; i < n; i++)
+	for (int ${1:i} = 0; $1 < ${2:n}; $1++) {
+		$0
+	}
