@@ -30,7 +30,7 @@ Personal dotfiles and configs fueled by nicotine and caffeine. Managed with syml
    ~/dotfiles/setup.sh
    ```
 
-   This installs TPM if needed and symlinks .bashrc, .vimrc, .profile, .gitconfig, tmux, and the nvim/ghostty/zed config dirs into place.
+   This installs TPM if needed and symlinks .bashrc, .vimrc, .profile, .gitconfig, tmux, and the nvim/ghostty/zed config dirs into place. If a real file or folder is already there, it's moved to `<name>.backup` first, so nothing is lost. Running it again is safe: links that are already correct are left alone.
 
 3. Reload your shell: `source ~/.bashrc`.
 
