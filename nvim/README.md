@@ -18,6 +18,7 @@ nvim/
 │       ├── autopairs.lua        -- Auto-close brackets
 │       ├── autosession.lua      -- Session save/restore
 │       ├── breadcrumbs.lua      -- Code context in winbar
+│       ├── code-runner.lua      -- <leader>rr compile & run C/Go/Rust in a tmux pane
 │       ├── colorizer.lua        -- Color swatches before color codes
 │       ├── colortheme.lua       -- Catppuccin with gruvbox colors
 │       ├── comment.lua          -- Toggle comments (gcc)
@@ -99,6 +100,7 @@ Leader key is `<Space>`.
 | `<leader>sg`                               | Normal        | Live grep                                                            |
 | `<leader>lg`                               | Normal        | Open LazyGit                                                         |
 | `<leader>tt` / `<leader>tf`                | Normal        | Test nearest / test file                                             |
+| `<leader>rr` / `<leader>rq`                | Normal        | Compile & run current file (C, Go, Rust) / close runner pane         |
 | `<leader>do`                               | Normal        | Toggle diagnostics                                                   |
 | `<leader>ip`                               | Normal        | Preview image under cursor                                           |
 | `s` / `S`                                  | Normal        | Flash jump / select treesitter node                                  |
